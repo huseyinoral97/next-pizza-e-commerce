@@ -16,12 +16,12 @@ const getData = async (category: string) => {
 }
 
 type Props = {
-  params: { category: String }
+  params: { category: string }
 }
 
 const CategoryPage = async ({ params }: Props) => {
 
-  const products: ProductType = await getData(params.category)
+  const products: ProductType[] = await getData(params.category)
 
   return (
     <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 max-sm:grid-cols-1 text-red-500">

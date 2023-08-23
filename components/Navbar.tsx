@@ -3,6 +3,7 @@ import Menu from "./Menu";
 import Image from "next/image";
 import Link from "next/link";
 import CartIcon from "./CartIcon";
+import UserLinks from "./UserLinks";
 
 const Navbar = () => {
   const user = false;
@@ -24,7 +25,7 @@ const Navbar = () => {
       </div>
       {/* RIGHT LINKS */}
       <div className="hidden md:flex gap-4 font-semibold items-center text-xl">
-        {!user ? <Link href="/">Login</Link> : <Link href="/">Orders</Link>}
+        <UserLinks />
         <CartIcon />
       </div>
     </div>
