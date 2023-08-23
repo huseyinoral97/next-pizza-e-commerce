@@ -6,14 +6,18 @@ const getData = async () => {
   const res = await fetch(`http://localhost:3000/api/products`, {
     cache: "no-cache",
   });
+  console.log(res, 'huso')
   if (!res.ok) {
     throw new Error("Failed!");
   }
   return res.json();
+
 };
 
+
 const Featured = async () => {
-  const featuredProducts: ProductType = await getData();
+  const featuredProducts: ProductType[] = await getData();
+
   return (
     <div
       className="py-16  bg-black relative text-center md:float-left w-full bg-center bg-no-repeat bg-cover"
