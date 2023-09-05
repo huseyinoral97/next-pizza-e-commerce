@@ -15,14 +15,14 @@ export const useCartStore = create<CartType & ActionTypes>((set, get) => ({
         set((state) => ({
             products: [...state.products, item],
             totalItems: state.totalItems + item.quantity,
-            totalPrice: state.totalPrice + item.price
+            totalPrice: state.totalPrice + (item.quantity * item.price)
         }))
     },
     removeFromCart(item) {
         set((state) => ({
             products: state.products.filter(product => product.id !== item.id),
             totalItems: state.totalItems - item.quantity,
-            totalPrice: state.totalPrice - item.price
+            totalPrice: state.totalPrice - (item.quantity * item.price)
         }))
     }
 }))

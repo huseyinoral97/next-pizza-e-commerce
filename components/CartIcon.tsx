@@ -6,7 +6,6 @@ import React from 'react'
 
 const CartIcon = () => {
     const { totalItems } = useCartStore();
-    console.log(totalItems)
     return (
         <Link href='/cart' className='flex items-center gap-1'>
             <span>Cart ({totalItems})</span>

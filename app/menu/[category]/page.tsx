@@ -22,7 +22,7 @@ type Props = {
 const CategoryPage = async ({ params }: Props) => {
 
   const products: ProductType[] = await getData(params.category)
-
+  console.log(products[0].price)
   return (
     <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 max-sm:grid-cols-1 text-red-500">
       {products.map((item) => (
@@ -35,14 +35,13 @@ const CategoryPage = async ({ params }: Props) => {
           )}
           <div className="flex justify-between mt-4 max-sm:flex-col max-sm:items-center items-center h-10">
             <h1 className="text-2xl">{item.title}</h1>
-            <span className="font-bold text-lg group-hover:hidden">
+            <span className="font-bold text-lg">
               ${item.price}
             </span>
-            <button className="hidden group-hover:block uppercase bg-red-500 text-white p-2 rounded-md">
-              Add to Cart
-            </button>
           </div>
         </Link>
+
+
       ))}
     </div>
   );

@@ -1,5 +1,6 @@
 import { ProductType } from "@/types/types";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const getData = async () => {
@@ -10,7 +11,6 @@ const getData = async () => {
     throw new Error("Failed!");
   }
   return res.json();
-
 };
 
 const Featured = async () => {
@@ -37,7 +37,7 @@ const Featured = async () => {
         </div>
         <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 max-sm:grid-cols-1 gap-20">
           {featuredProducts.map((item) => (
-            <div className="bg-white rounded-2xl">
+            <Link href={`/product/${item.id}`} className="bg-white rounded-2xl">
               <div className="p-4">
                 {item.img && (
                   <Image
@@ -49,17 +49,14 @@ const Featured = async () => {
                     className="rounded-2xl hover:scale-75 duration-300"
                   />
                 )}
-                <button className="bg-black text-white px-4 py-2 rounded-full my-4">
-                  + Add to Cart
-                </button>
-                <div className="border-t-2 border-[#2d2d2d] py-2 text-center">
+                <div className="border-t-2 border-[#2d2d2d] py-2 text-center mt-5">
                   <h3 className="text-xl">{item.title}</h3>
                   <h5 className="text-red-500 text-lg font-bold">
                     ${item.price}
                   </h5>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
